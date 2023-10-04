@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load django_bootstrap5 %}
+{% block content %}
+  <h1>Удалить запись {{ object.pk }}</h1>
+  <div class="card col-4 m-3">
+    <div class="card-header">
+          Удаление публикации
+    </div>
+    <div class="card-body">
+      <form method="post">
+        {% csrf_token %}
+        <p><b>Пост</b>: {{ object.title }}</p>
+        <p><b>Текст поста</b>: {{ object.text }}</p>
+        <p><b>Автор</b>: {{ object.author }}</p>
+        {% bootstrap_button button_type="submit" content="Удалить" %}
+      </form>
+    </div>
+  </div>
+{% endblock content %}
